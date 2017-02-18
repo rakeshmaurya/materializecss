@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--Import Google Icon Font-->
+<link type="text/css" rel="stylesheet" href="css/icon.css"/>
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style type="text/css">
+
+html {
+	overflow-Y: scroll;
+}
+body {
+	font: 10px normal Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	line-height: 1.7em;
+}
+*, * focus {
+	outline: none;
+	margin: 0;
+	padding: 0;
+}
+
+.space
+{
+	margin:10px 0px}
+
+
+h2.acc_trigger {
+	padding: 0;	margin: 0 0 5px 0;
+	background: #d3444f url(images/h2_trigger_a.png) no-repeat;
+	height: 46px;	line-height: 46px;
+	width: 100%;
+	font-size: 1.6em;
+	font-weight: normal;
+	float: left;
+	border-radius:5px;
+}
+h2.acc_trigger a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	padding: 0 0 0 50px;
+}
+h2.acc_trigger a:hover {
+	color: #ccc;
+}
+h2.active {background-position: left bottom;}
+.acc_container {
+
+	padding-left: 20px;
+    padding-right: 20px;
+	overflow: hidden;
+	font-size: 1.2em;
+	width: 100%;
+	clear: both;
+	background: #f6f8f9;
+	border: 1px solid #d6d6d6;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px; 
+}
+.addbg
+{
+	background-color:#EDEDED; 
+padding-bottom:60px !important;
+}
+.head_inn
+{
+background-color:#DCDCDC;
+font-size: 15px;
+padding: 5px 10px;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+//Set default open/close settings
+$('.acc_container').hide(); //Hide/close all containers
+$('.acc_trigger:last').addClass('active').next().show(); //Add "active" class to first trigger, then show/open the immediate next container
+//On Click
+$('.acc_trigger').click(function(){
+	if( $(this).next().is(':hidden') ) { //If immediate next container is closed...
+		$('.acc_trigger').removeClass('active').next().slideUp(); //Remove all .acc_trigger classes and slide up the immediate next container
+		$(this).toggleClass('active').next().slideDown(); //Add .acc_trigger class to clicked trigger and slide down the immediate next 
+	}
+	return false; //Prevent the browser jump to the link anchor
+});
+
+
+  $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 240
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
+   $('select').material_select();
+   
+    $('.datepicker').pickadate({
+		selectMonths:true,
+		selectYears:15
+		});
+   
+});
+</script>
+<script src="js/materialize.min.js"></script>
+</head>
+
+<body>
+
+<!-- Pre Loader -->
+<div id="loader-wrapper">
+  <div id="loader"></div>
+  <div class="loader-section section-left"></div>
+  <div class="loader-section section-right"></div>
+</div>
+
+<!--Navigation-->
+<div class="navbar-fixed">
+  <nav id="nav" class="light-blue darken-3" role="navigation">
+    <div class="container">
+      <div class="nav-wrapper">
+        <ul id="slide-out" class="side-nav">
+          <li><a href="#" class="waves-effect"><i class="material-icons left">home</i>Home</a></li>
+         <li><a href="#" class="waves-effect"><i class="material-icons left">phone</i>Contact us</a></li>
+         
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a> 
+        <a href="#" id="logo-container" class="brand-logo"><img src="images/logo1.png" width="171" height="58" alt=""/></a>
+        <ul class="right hide-on-med-and-down">
+        <li><a href="#" class="waves-effect waves-light"><i class="material-icons left">home</i>Home</a></li>
+         <li><a href="#" class="waves-effect waves-light"><i class="material-icons left">phone</i>Contact us</a></li>
+          <li><a href="#"><img src="images/logo2.png" width="129" height="58" alt=""/></a></li>
+        </ul>
+         
+  </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container" style="margin-top:20px">
+
+
+	<h2 class="acc_trigger" ><a href="#">tab1</a></h2>
+	<div class="acc_container">
+		
+       <div class="row">
+       <div class="col s12 m10">
+       <div class="row">
+        
+        
+        
+        
+        
+<div class="input-field col s12 m6">
+    <select id="emp_com">
+      <option value="" disabled selected>Select company</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+    </select>
+   <label for="emp_com">Company</label>  
+  </div>
+           <div class="input-field col s12 m6">
+    <select id="emp_div">
+      <option value="" disabled selected>Select division</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      
+    </select>
+   <label for="emp_div">Division</label>
+   
+   
+  </div>
+            <div class="input-field col s12 m6">
+    <select>
+      <option value="" disabled selected>Select department</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>      
+    </select>
+    <label for="emp_code">Department</label>
+  </div>
+           <div class="input-field col s12 m6">
+    <select id="emp_zone">
+      <option value="" disabled selected>Select Employee</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+    </select>
+   <label for="emp_zone">Employee</label>
+  </div>
+     
+               
+                      
+            </div>
+       </div>
+        <div class="col s12 m2"><img style="margin-top: 20px" src="images/no.png" width="180" height="200" alt=""/>
+       </div>
+       
+       
+       
+       </div>  
+        
+        <h5 class="head_inn">Nomination Information</h5>
+        
+<div class="row">
+    <div class="col s12 m3">
+      <div class="input-field col s12">                  
+                   <input id="emp_name" name="email" type="text" class="validate">
+                   <label for="emp_name">Employee Name</label>                 
+               </div>
+                               <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Select Relation</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>      
+    </select>
+    <label for="emp_code">Relation</label>
+  </div>
+            <div class="input-field col s12">
+			      <textarea id="address" class="materialize-textarea"></textarea>
+                  <label for="address">Address</label>
+               </div>
+
+
+               </div>
+               
+               
+    <div class="col s12 m3"> 
+                            <div class="input-field col s12">                  
+                   <input id="emp_dob" name="emp_dob" type="date" class="datepicker">
+                   <label for="emp_dob">DOB</label>                 
+               </div>
+ 
+ 
+
+  
+               
+                   <div class="input-field col s12">                  
+                   <input id="emp_joindt" name="emp_joindt" type="date" class="datepicker">
+                   <label for="emp_joindt">NOM Date</label>                 
+               </div>
+               
+                              <div class="input-field col s12 m6">                  
+                   <input id="emp_chq" name="emp_chq" type="text" class="validate">
+                   <label for="emp_chq">Sales in %</label>                 
+               </div>
+                              <div class="input-field col s12 m6">                  
+                   <input id="emp_chq" name="emp_chq" type="text" class="validate">
+                   <label for="emp_chq">Gratuity in %</label>                 
+               </div>
+               
+               
+               
+               
+                  </div>
+    
+    
+    <div class="col s12 m3">
+    
+    
+             <div class="input-field col s12"> 
+             
+             <p class="space">
+             <input id="reside" type="checkbox" class="filled-in">
+                     <label for="reside">Residing with her/him</label>
+                  </p>
+                 <p class="space">
+             <input id="epf" type="checkbox" class="filled-in">
+                     <label for="epf">EPF</label>
+                  </p>
+                  <p class="space">
+             <input id="eps" type="checkbox" class="filled-in">
+                     <label for="eps">EPS</label>
+                  </p> 
+                           <p class="space">
+             <input id="nominee" type="checkbox" class="filled-in" >
+                     <label for="nominee">Nominee for ESIC</label>
+                  </p>
+                  
+               </div>
+    
+    
+     
+    
+    
+    
+    
+    
+    
+    </div>
+    
+     
+    <div class="col s12 m3 addbg">
+    
+    
+             <div class="input-field col s12"> 
+             
+             <p>
+             <input id="mirror" type="checkbox" class="filled-in">
+                     <label for="mirror">Minor</label>
+                  </p>
+                
+                  
+               </div>
+    
+      <div class="input-field col s12">                  
+                   <input id="emp_name" name="email" type="text" class="validate">
+                   <label for="emp_name">Gaurdian</label>                 
+               </div>
+    
+    <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Select Relation</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>      
+    </select>
+    <label for="emp_code">Relation</label>
+  </div>
+    
+    
+    
+    
+    
+    </div>
+</div>
+        
+        
+        
+
+ 
+            
+            
+            
+	</div>
+
+	<h2 class="acc_trigger"><a href="#">Tab2</a></h2>
+	<div class="acc_container">
+     <div class="row">
+     <div class="col m6 s12">
+    
+     <div class="row">
+     <div class="col m6 s12">
+     <h5 class="head_inn">Passport Detail :</h5>
+     <div class="input-field col s12">                  
+                   <input id="pp_id" name="email" type="text" class="validate" />
+                   <label for="pp_id">Gaurdian</label>                 
+     </div>
+     
+          <div class="input-field col s12">                  
+                   <input id="issue_at" name="email" type="text" class="validate" />
+                   <label for="issue_at">Issue at</label>                 
+     </div>
+     
+    <div class="input-field col s12">                  
+                   <input id="exp_dt" name="exp_dt" type="date" class="datepicker">
+                   <label for="exp_dt">Expiry Date</label>                 
+               </div>
+     </div>
+      <div class="col m6 s12">
+     <h5 class="head_inn">Emp type and password</h5>
+     
+      <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Select Salery Type</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>      
+    </select>
+    <label for="emp_code">Salery Type</label>
+  </div>
+     
+     
+     
+     <div class="input-field col s12">                  
+                   <input id="emp_pass" name="email" type="text" class="validate" />
+                   <label for="emp_pass">Employee Password</label>                 
+     </div>
+     
+
+     
+    <div class="input-field col s12">                  
+                   <input id="train_com_dt" name="exp_dt" type="date" class="datepicker">
+                   <label for="train_com_dt">Training completed Date</label>                 
+               </div>
+                   <div class="input-field col s12">                  
+                   <input id="prob_com_dt" name="prob_com_dt" type="date" class="datepicker"/>
+                   <label for="prob_com_dt">Probation completed Date</label>                 
+               </div>
+                <div class="input-field col s12">                  
+                   <button class="btn waves-effect waves-light red">Submit</button>              
+               </div>
+               
+     </div>  
+  
+      <div class="row">
+     <div class="col m12">
+     
+     
+     
+     <table class="striped bordered">
+      <thead>
+         <tr>
+         <th>Sr</th>
+         <th>File Name</th>
+         <th>Issue Date </th>
+         <th>Expiray Date </th>
+         <th> Document Desc.  </th>
+          
+         
+         </tr>
+
+      </thead>
+      <tbody>
+         <tr>
+         <td>1.</td>
+         <td>abc.jpg</td>
+         <td>16-10-16</td>
+         <td>16-10-16</td>
+          <td>xxxxxxxx</td>           
+         </tr>
+      <tr>
+         <td>1.</td>
+         <td>abc.jpg</td>
+         <td>16-10-16</td>
+         <td>16-10-16</td>
+          <td>xxxxxxxx</td>           
+         </tr>
+         
+      </tbody>
+      </table>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     </div>
+    
+     </div>
+     
+     </div>
+ 
+     </div>   
+        
+        <div class="col m6 s12 addbg">
+        
+        <h5 class="head_inn">Qualification</h5>
+     
+      <div class="input-field col s12 m6">
+    <select>
+      <option value="" disabled selected>Qualification</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>      
+    </select>
+    <label for="emp_code">Selection Qualification</label>
+  </div>
+     
+     
+     
+     <div class="input-field col s12 m6">                  
+                   <input id="insti" name="email" type="text" class="validate" />
+                   <label for="insti">Institute/ University</label>                 
+     </div>
+     
+
+     
+    <div class="input-field col s12 m6">                  
+                   <input id="frm_dt" name="exp_dt" type="date" class="datepicker">
+                   <label for="frm_dt">From Date</label>                 
+               </div>
+                   <div class="input-field col s12 m6">                  
+                   <input id="to_dt" name="exp_dt" type="date" class="datepicker">
+                   <label for="to_dt">To Date</label>                 
+               </div>
+         <div class="input-field col s12 m6">                  
+                   <input id="marks" name="marks" type="text" class="validate" />
+                   <label for="marks">Marks</label>                 
+     </div>
+      <div class="input-field col s12 m6">                  
+                   <input id="grade" name="grade" type="text" class="validate" />
+                   <label for="grade">Grade</label>                 
+     </div>
+      <div class="input-field col s12 m6">  
+      <button class="btn waves-effect waves-light red">Remove</button>                
+                   
+                                   
+     </div>
+              <div class="input-field col s12">                  
+               
+      <table class="striped bordered">
+      <thead>
+         <tr>
+         <th>Sr</th>
+         <th>Qualification</th>
+         <th>University</th>
+         <th>From Date</th>
+         <th>To Date</th>
+          <th>Marks</th>
+         <th>Grade</th>
+         
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+         <td>1.</td>
+         <td>PG</td>
+         <td>Mumbai</td>
+         <td>16-10-16</td>
+         <td>16-10-16</td>
+          <td>70%</td>
+           <td>A</td>
+         </tr>
+          <tr>
+         <td>1.</td>
+         <td>PG</td>
+         <td>Mumbai</td>
+         <td>16-10-16</td>
+         <td>16-10-16</td>
+          <td>70%</td>
+           <td>A</td>
+         </tr>
+         
+      </tbody>
+      </table>    
+                                   
+     </div>
+     <div class="input-field col s12">                  
+               
+        <h5 class="head_inn">PF Esic Nomination Submitted Detail</h5>
+     
+
+     
+     
+     
+   
+     
+
+     
+    <div class="input-field col s12 m6">                  
+                   <input id="wi_dt" name="wi_dt" type="date" class="datepicker">
+                   <label for="wi_dt">withdrawl from submit Date</label>                 
+               </div>
+               <div class="input-field col s12 m6">                  
+                   <input id="with_remark" name="with_remark" type="text" class="validate" />
+                   <label for="with_remark">Withdral Remarks</label>                 
+     </div>  
+                   <div class="input-field col s12 m6">                  
+                   <input id="pf_dt" name="pf_dt" type="date" class="datepicker">
+                   <label for="pf_dt">PF nomination submitted Date</label>                 
+               </div>
+    
+      <div class="input-field col s12 m6">                  
+                   <input id="pf_re" name="pf_re" type="text" class="validate" />
+                   <label for="pf_re">PF Nominee Remarks</label>                 
+     </div> 
+     
+     <div class="input-field col s12 m6">                  
+                   <input id="es_dt" name="es_dt" type="date" class="datepicker">
+                   <label for="es_dt">ESIC nomination submitted Date</label>                 
+               </div>
+    
+      <div class="input-field col s12 m6">                  
+                   <input id="enr" name="enr" type="text" class="validate" />
+                   <label for="enr">ESIC Nominee Remarks</label>                 
+     </div> 
+                                   
+     </div>
+        </div>
+        
+        
+	</div>
+</div>
+
+
+</body>
+</html>
